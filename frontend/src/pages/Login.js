@@ -1,39 +1,3 @@
-// import React, { useState } from "react";
-// import API from "../api";
-// import { useNavigate } from "react-router-dom";
-
-// export default function Login() {
-//   const [form, setForm] = useState({ email: "", password: "" });
-//   const [err, setErr] = useState("");
-//   const nav = useNavigate();
-
-//   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const res = await API.post("/api/auth/login", form);
-//       localStorage.setItem("token", res.data.token);
-//       nav("/dashboard");
-//     } catch (error) {
-//       setErr(error.response?.data?.msg || "Login failed");
-//     }
-//   };
-
-//   return (
-//     <div className="container">
-//       <h2>Login</h2>
-//       {err && <p style={{ color: "red" }}>{err}</p>}
-//       <form onSubmit={handleSubmit}>
-//         <input name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-//         <input name="password" placeholder="Password" type="password" value={form.password} onChange={handleChange} />
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-
-
 import React, { useState } from "react";
 import API from "../api"; // make sure API has baseURL configured
 import { useNavigate } from "react-router-dom";
