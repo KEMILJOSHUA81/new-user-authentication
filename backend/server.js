@@ -1,46 +1,3 @@
-// const express = require('express');
-// const cors = require('cors');
-// const dotenv = require('dotenv');
-// const connectDB = require('./config/db');
-
-// dotenv.config();
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-
-// connectDB(process.env.MONGO_URI);
-
-// app.use('/api/auth', require('./routes/auth'));
-// app.use('/api/users', require('./routes/users'));
-
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-
-// const express = require('express');
-// const cors = require('cors');
-// const dotenv = require('dotenv');
-// const connectDB = require('./config/db');
-
-// // Load .env before using process.env
-// dotenv.config();
-
-// console.log("MONGO_URI from env:", process.env.MONGO_URI); // debug
-
-// connectDB(process.env.MONGO_URI);
-
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-
-// app.use('/api/auth', require('./routes/auth'));
-// app.use('/api/users', require('./routes/users'));
-
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-
-// server.js
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -82,8 +39,6 @@ const auth = (req, res, next) => {
 
 // ===================== ROUTES =====================
 
-// Signup
-// Signup
 app.post('/auth/signup', async (req, res) => {
   const { firstname, lastname, mobileNumber, email, password } = req.body;
 
@@ -110,7 +65,7 @@ app.post('/auth/signup', async (req, res) => {
 });
 
 
-// Login
+
 app.post('/auth/login', async (req, res) => {
   const { identifier, password } = req.body; // email or mobileNumber
   try {
@@ -127,7 +82,6 @@ app.post('/auth/login', async (req, res) => {
   }
 });
 
-// Update user
 app.put('/update/:id', auth, async (req, res) => {
   const updates = { ...req.body };
   try {
@@ -140,7 +94,6 @@ app.put('/update/:id', auth, async (req, res) => {
   }
 });
 
-// Get all users
 app.get('/', auth, async (req, res) => {
   try {
     const users = await User.find().select('-password');
